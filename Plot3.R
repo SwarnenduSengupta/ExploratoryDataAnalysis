@@ -22,10 +22,10 @@ png("Plot3.png", width = 480, height = 480)
 
 g <- ggplot(pm25_Baltimore_by_type_by_year, aes(x = factor(year), y = Emissions, fill = type))
 g <- g + geom_bar(stat = "identity") + 
-  ggtitle("Total PM2.5 emissions in Baltimore, MD from 1999 to 2008 by source type") +
   xlab("Year") + 
   ylab(expression(" Total PM2.5 emissions (Tons)")) +
-  scale_fill_discrete(name = "Source Type") 
+  scale_fill_discrete(name = "Source Type") +
+  ggtitle("Total PM2.5 emissions in Baltimore, MD from 1999 to 2008 by source type")
 
 print(g)
 dev.off()

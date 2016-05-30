@@ -22,12 +22,12 @@ NEISCC_coal <- NEISCC[comb,]
 
 png("Plot4.png", width = 480, height = 480)
 
-g <- ggplot(NEISCC_coal, aes(year, Emissions, color = SCC.Level.One))
-g <- g + geom_(size =2 ) + 
-  ggtitle("Total PM2.5 coal combustions emissions from 1999 to 2008" ) +
+g <- ggplot(NEISCC_coal, aes(year, Emissions, fill = SCC.Level.One))
+g <- g + geom_bar(stat = "identity") + 
   xlab("Year") + 
   ylab(expression("Total PM2.5 emissions (Tons)")) +
-  scale_fill_discrete(name = "Combustion source") 
+  scale_fill_discrete(name = "Combustion source") +
+  ggtitle("Total PM2.5 coal combustions emissions from 1999 to 2008" )
 
 print(g)
 dev.off()
