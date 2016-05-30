@@ -7,18 +7,20 @@
 ##
 
 ## Using sugested code to load data
-## files must be in same directory
+## Data files must be unzipped and available in the same directory
 
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
-
 pm25byyear <- aggregate(Emissions ~ year, NEI, sum)
 
+png("Plot1.png", width = 480, height = 480)
 
-png('plot1.png')
+barplot(height = pm25byyear$Emissions, 
+        names.arg = pm25byyear$year, 
+        col = "blue",
+        xlab = "Years",
+        main = expression("Total PM2.5 emissions from 1999 to 2008 in the USA"),
+        ylab = expression("Total PM2.5 emissions (Tons)" ))
 
-barplot(height = pm25byyear$Emissions, names.arg = pm25byyear$year, xlab="years",
-        main = expression('total PM'[2.5]*'emissions at various years'),
-        ylab = expression('total PM'[2.5]*'emission'))
 dev.off()
