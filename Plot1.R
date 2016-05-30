@@ -15,7 +15,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 pm25byyear <- aggregate(Emissions ~ year, NEI, sum)
 
 png("Plot1.png", width = 480, height = 480)
-
+#create a plot using base plotting technique not barplotting technique
 barplot(height = pm25byyear$Emissions, 
         names.arg = pm25byyear$year, 
         col = "blue",
